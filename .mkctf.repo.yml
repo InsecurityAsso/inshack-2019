@@ -1,0 +1,44 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+difficulties:
+- trivial
+- easy
+- medium
+- hard
+- extreme
+directories:
+  private:
+  - server-files
+  - exploit
+  - src
+  public:
+  - public-files
+files:
+  build: build
+  chall_conf: .mkctf.yml
+  deploy: deploy
+  description: public-files/description.md
+  status: exploit/exploit
+  txt:
+  - Dockerfile
+  - writeup.md
+flag:
+  prefix: INSA{
+  suffix: '}'
+name: inshack-2019
+tags:
+- bugbounty
+- crypto
+- for
+- misc
+- prog
+- pwn
+- re
+- web
+- net
+static:
+  salt: 2e02984b4c3ec14f5030f43e4b9e807e98ec5cd6
+  base_url: https://static.ctf.insecurity-insa.fr/

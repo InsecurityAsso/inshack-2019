@@ -1,0 +1,12 @@
+[Unit]
+Description=You Shall Not Pass Service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu
+EnvironmentFile=/home/ubuntu/sesame.env
+ExecStart=/home/ubuntu/venv/bin/python sesame.py ens3 sesame.json
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

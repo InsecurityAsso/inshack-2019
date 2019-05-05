@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: extreme
+enabled: true
+flag: INSA{Elektr0nenklange_Aus_d3m_R4di0l4nD}
+name: Challs Don't Matter Anymore
+parameters: {}
+points: -3
+slug: challs-dont-matter-anymore
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/8cb21532d36692d7e80f9dcf77db6bc9c1c51079.tar.gz
+tags:
+- net

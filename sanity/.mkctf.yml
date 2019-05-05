@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: trivial
+enabled: true
+flag: INSA{Welcome}
+name: Sanity
+parameters: {}
+points: 1
+slug: sanity
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/8baebca10c8b21c2b157bd24cd3ddde22ed8cfea.tar.gz
+tags:
+- misc

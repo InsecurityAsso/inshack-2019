@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+# exit on error
+set -e
+# ------------------------------------------------------------------------------
+# FUNCTIONS
+# ------------------------------------------------------------------------------
+function print {
+    (>&2 printf "\x1b[34m${1}\x1b[0m\n")
+}
+function exit_success {
+    (>&2 printf "\x1b[32m- Script succeeded.\x1b[0m\n")
+    exit 0
+}
+function exit_failure {
+    (>&2 printf "\x1b[31m- Script failed.\x1b[0m\n")
+    exit 1
+}
+function exit_non_applicable {
+    (>&2 printf "\x1b[36m- Script non applicable.\x1b[0m\n")
+    exit 2
+}
+function exit_manual {
+    (>&2 printf "\x1b[33m- Script requires a manual operation.\x1b[0m\n")
+    exit 3
+}
+function exit_not_implemented {
+    (>&2 printf "\x1b[35m- Script not implemented.\x1b[0m\n")
+    exit 4
+}
+function usage {
+    print "usage: build [-h|--help]"
+    print "OPTIONS:"
+    print "    --help,-h: display usage message"
+    exit_failure
+}
+# ------------------------------------------------------------------------------
+# MAIN SCRIPT
+# ------------------------------------------------------------------------------
+print "========================================================================="
+print "build"
+print "========================================================================="
+
+while test $# -gt 0
+do
+    case "$1" in
+        --help|-h) usage
+            ;;
+        -*) print "- Unknown short option $1"
+            ;;
+        --*) print "- Unknown long option $1"
+            ;;
+        *) print "- Unknown argument $1"
+            ;;
+    esac
+    shift
+done
+
+FLAG=$(grep 'flag:' .mkctf.yml | cut -d" " -f2)
+LOG=/tmp/drone.log
+SENSOR_LOG=/tmp/sensors.log
+ARCH=../public-files/drone-motion.zip
+TRACK=track.yml
+DRONE=drone.yml
+
+cd src
+print "- Creating virtual environment..."
+python3 -m venv venv
+print "- Installing package..."
+venv/bin/pip install -e .
+print "- Generating track file..."
+venv/bin/trackgen ${FLAG} ${TRACK}
+print "- Simulating drone following the track..."
+venv/bin/dms -d --log=${LOG} ${DRONE} ${TRACK}
+print "- Generating public log..."
+cat ${LOG} | grep -E "(accel|dir):" > ${SENSOR_LOG}
+print "- Generating archive..."
+zip -j ${ARCH} ${SENSOR_LOG}
+cd ..
+exit_success

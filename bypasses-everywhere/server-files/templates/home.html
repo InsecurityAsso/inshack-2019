@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>I'm selling my stuff</h1>
+<p>
+	Yeah I know you can't afford it, but at least you can have a look. Don't be jalous of my <code>$$$money$$$</code>
+</p>
+
+<ul>
+{% for text, link in articles %}
+	<li>
+		<a href="{{ link }}">{{ text }}</a>
+	</li>
+{% endfor %}
+</ul>
+<hr>
+- All copyrights to me - <a href="/admin?picture=http://withmartijn.com/wp-content/uploads/2015/10/Enjoy-your-gift-withMartijn.jpg">Admin</a>
+{% endblock %}

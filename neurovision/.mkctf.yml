@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: hard
+enabled: true
+flag: INSA{0v3rfitt3d_th3_Fl4g!}
+name: neurovision
+parameters: {}
+points: -3
+slug: neurovision
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/dc1c30c75ea98475b324890d81da1f92b5ab04e8.tar.gz
+tags:
+- misc

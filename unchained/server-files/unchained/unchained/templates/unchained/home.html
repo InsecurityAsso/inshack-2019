@@ -1,0 +1,45 @@
+{% load static %}
+
+<html>
+	<head>
+		<title>If only I were admin..</title>
+		<link rel="stylesheet" href="{% static 'css/bare.min.css' %}">
+		<style>
+			body, img{padding: 30px}
+			blockquote{color: red}
+		</style>
+	</head>
+	<body>
+		<h1>
+			Hello `{{ user }}` :)
+		</h1>
+		<section>
+			{% if messages %}
+			<blockquote>
+				{% for message in messages %}
+				<p>{{ message }}</p>
+				{% endfor %}
+			</blockquote>
+			{% endif %}
+			{% if admin %}
+				<h2>/!\ This should only be seen by me /!\</h2>
+				{{ flag }}
+				<hr>
+			{% endif %}
+			<form action="/login/" method="post">
+				{% csrf_token %}
+				<label>Username</label>
+				<input type="text" name="username" placeholder="username" autofocus>
+				<button primary m-full role="submit">Login</button>
+			</form>
+			<hr>
+			<img src="{% static 'img/i-want-admin.jpg' %}">
+			<img src="{% static 'img/the-joker-meme-generator-it-s-simple-we-kill-the-admin-ab4c9d.png' %}">
+			<img src="{% static 'img/god-the-admin_o_1270905.jpg' %}">
+			<img src="{% static 'img/21acb2.jpg' %}">
+			<img src="{% static 'img/admin-power.jpg' %}">
+			<img src="{% static 'img/2oy9xl.jpg' %}">
+			<img src="{% static 'img/brace-yourself-the-t2crk4.jpg' %}">
+		</section>
+	</body>
+</html>

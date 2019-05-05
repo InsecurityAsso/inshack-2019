@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: extreme
+enabled: true
+flag: INSA{D0_you_f1nD_it_Risible_wh3N_I_s4y_th3_name}
+name: Dashlame - Part 2
+parameters: {}
+points: -3
+slug: dashlame-part2
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/11c0fb2a76b074bfa78516cde464cdc9d8cf0eb4.tar.gz
+tags:
+- crypto

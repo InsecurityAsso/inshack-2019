@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: easy
+enabled: true
+flag: INSA{HACKINDUSTRIALPROCESS}
+name: industrial-process
+parameters: {}
+points: -3
+slug: industrial-process
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/961c00aa5dd0bccd7d0a02dd8142fb9ff34e3d21.tar.gz
+tags:
+- misc

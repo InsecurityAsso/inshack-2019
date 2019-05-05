@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: easy
+enabled: true
+flag: INSA{3e508f6e93fb2b6de561d5277f2a9b26bc79c5f349c467a91dd12769232c1a29}
+name: Exploring The Universe
+parameters: {}
+points: -3
+slug: exploring-the-universe
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/c79b72ad6e25b5512e94059c285a8986a6ef99df.tar.gz
+tags:
+- web

@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #000 url("../img/universe.jpg") repeat top center;
+  z-index:0;
+  color: #fff;
+  font-family: arial;
+  font-size: 62.5%;
+}
+
+@keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+
+@-webkit-keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+
+@-moz-keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+
+@-ms-keyframes move-twink-back {
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+
+.twinkling {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.twinkling{
+  background:transparent url("img/twinkling.png") repeat top center;
+  z-index:1;
+
+  -moz-animation:move-twink-back 200s linear infinite;
+  -ms-animation:move-twink-back 200s linear infinite;
+  -o-animation:move-twink-back 200s linear infinite;
+  -webkit-animation:move-twink-back 200s linear infinite;
+  animation:move-twink-back 200s linear infinite;
+}
+
+#bgCanvas{
+  border: 2px solid #777777;
+  border-radius: 15px;
+}
+
+#gameContainer{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  text-align: center;
+  width: 800px;
+}
+
+#usage{
+  text-align: left;
+  font-size: 1.4em;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+#controls{
+  width: 30%;
+  float: left;
+}
+
+#descrip{
+  width: 70%;
+  float: right;
+}

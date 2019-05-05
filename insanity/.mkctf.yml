@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: trivial
+enabled: true
+flag: INSA{YouRe_Crazy_and_I_Love_it}
+name: INSAnity
+parameters: {}
+points: -2
+slug: insanity
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/bd1c4bfe6e5d798e4c6f9a3f94a88e76493ae4d9.tar.gz
+tags:
+- misc

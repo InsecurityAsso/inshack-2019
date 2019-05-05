@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: easy
+enabled: true
+flag: INSA{b274dddb2c7707ebe430dadcf1245c246713502d6e9579f00acd10a83f3da95e}
+name: Passthru
+parameters: {}
+points: -3
+slug: passthru
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/13140c280d45224949bfe7fc1b978c6b97ddd55d.tar.gz
+tags:
+- for

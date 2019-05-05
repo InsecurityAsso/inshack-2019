@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: medium
+enabled: true
+flag: INSA{213dca08e606ef9e5352f4bdd8b6dd9d6c559e9ce76b674ae3739a34c5c3be37}
+name: You Shall Not Pass
+parameters: {}
+points: -3
+slug: you-shall-not-pass
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/3b89ef8bb51773c8f3478bf356271ac762ec96c3.tar.gz
+tags:
+- for

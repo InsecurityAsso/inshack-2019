@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>SSL</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="css/cover.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+  <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead">
+      <div class="inner">
+        <h3 class="masthead-brand">Super Secure Login - SSL</h3>
+      </div>
+    </header>
+
+    <main role="main" class="inner cover">
+      <p class="lead">
+        Upload a file !
+        <form enctype="multipart/form-data" id="form" action="/login" method="post">
+          <input type="file" id="file" name="file">
+          {{ recaptcha }}
+
+          <input type="submit" value="Login">
+        </form>
+      </p>
+    </main>
+  </div>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Advanced login by <a href="https://insecurity-insa.fr">Insecurity</a>.</p>
+        </div>
+      </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+</body>
+<!-- Check if your totp client is on time : /debug-->
+</html>

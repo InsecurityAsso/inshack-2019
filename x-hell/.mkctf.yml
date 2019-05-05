@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: medium
+enabled: true
+flag: INSA{203-157-13-132}
+name: xHell
+parameters: {}
+points: -3
+slug: x-hell
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/e2ccb4917c2c8305d2fda31133b3d37af880e7fb.tar.gz
+tags:
+- re

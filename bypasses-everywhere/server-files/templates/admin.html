@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Send me a gift</h1>
+<p>
+	I'm currently looking to sell more costly stuff. If you want to help me, please send me a link to the article you want to give me (for free!) and I'll check it out.
+</p>
+<form action="/url" method="post">
+	<label>Url</label>
+	<input type="text" name="url" placeholder="https://bypasses-everywhere.ctf.insecurity-insa.fr/article?name=Plane">
+	<input type="submit" value="Submit">
+</form>
+<br>
+
+<img style='max-width: 50vh' src="{{ url|safe }}">
+
+{% if code %}{{ code|safe }}{% else %}
+You're currently seeing this page from an unknown IP address.
+I'm usually connecting to this page by clicking a link from another hidden page on http://127.0.0.1:8080, so I'm pretty sure this page is safe :)
+{% endif %}
+{% endblock %}

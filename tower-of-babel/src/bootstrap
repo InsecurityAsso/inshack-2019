@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+sudo chown -R user:user tob/
+cp tob/* /dev/shm/
+cd /dev/shm/
+sudo insmod tob.ko
+sudo dmesg
+sudo insmod lime-4.18.0-16-generic.ko "path=/media/sf_vms-share/mem.dmp format=lime"

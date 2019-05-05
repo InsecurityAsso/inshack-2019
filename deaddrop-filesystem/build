@@ -1,0 +1,188 @@
+#!/usr/bin/env bash
+# exit on error
+set -e
+# ------------------------------------------------------------------------------
+# FUNCTIONS
+# ------------------------------------------------------------------------------
+function print {
+    (>&2 printf "\x1b[34m${1}\x1b[0m\n")
+}
+function exit_success {
+    (>&2 printf "\x1b[32m- Script succeeded.\x1b[0m\n")
+    exit 0
+}
+function exit_failure {
+    (>&2 printf "\x1b[31m- Script failed.\x1b[0m\n")
+    exit 1
+}
+function exit_non_applicable {
+    (>&2 printf "\x1b[36m- Script non applicable.\x1b[0m\n")
+    exit 2
+}
+function exit_manual {
+    (>&2 printf "\x1b[33m- Script requires a manual operation.\x1b[0m\n")
+    exit 3
+}
+function exit_not_implemented {
+    (>&2 printf "\x1b[35m- Script not implemented.\x1b[0m\n")
+    exit 4
+}
+function usage {
+    print "usage: build [-h|--help] [-d|--debug] [-v|--verbose]"
+    print "OPTIONS:"
+    print "    --help,-h: display usage message"
+    print "    --debug,-d: build in debug mode"
+    print "    --verbose,-v: turn on make verbosity"
+    exit_failure
+}
+function randhex {
+    echo "$(head -c 8 /dev/urandom | xxd -ps)"
+}
+# ------------------------------------------------------------------------------
+# MAIN SCRIPT
+# ------------------------------------------------------------------------------
+print "========================================================================="
+print "build"
+print "========================================================================="
+
+SRC_DIR=src
+BUILD_DIR=bin
+BUILD_TYPE=Release
+DDFS_ONLY=0
+MAKE_VERBOSE=0
+FLAG=$(grep 'flag:' .mkctf.yml | cut -d" " -f2)
+USER=john
+PSWD=H4rd3rB3tt3rF4st3rStr0ng3r
+RANDSTR=$(randhex)
+MNT_DIR=/tmp/${RANDSTR}
+HDDFILE=/tmp/dd.img
+DDFS_DIR=/tmp/${RANDSTR}.ddfs
+RECOVERED_ZIP=public-files/deaddrop-filesystem.zip
+
+while test $# -gt 0
+do
+    case "$1" in
+        --debug|-d) BUILD_TYPE=Debug
+            ;;
+        --verbose|-v) MAKE_VERBOSE=1
+            ;;
+        --help|-h) usage
+            ;;
+        --ddfs-only) DDFS_ONLY=1
+            ;;
+        *) print "unknown argument $1"
+            ;;
+    esac
+    shift
+done
+
+print "- Entering ${SRC_DIR} directory"
+cd ${SRC_DIR}
+print "-- Recreating ${BUILD_DIR} directory"
+rm -rf ${BUILD_DIR}
+mkdir -p ${BUILD_DIR}
+print "-- Entering ${BUILD_DIR} directory"
+cd ${BUILD_DIR}
+print "-- Preparing build in ${BUILD_TYPE} mode"
+cmake -DCMAKE_BUILD_TYPE=${BUILD_TYPE} ..
+print "-- Build ddfs-mount executable and its dependencies"
+if [ ${MAKE_VERBOSE} -eq 1 ]; then
+    VERBOSE=1 make
+else
+    make
+fi
+print "-- Apply post-build transformations"
+strip -v -s --strip-unneeded -R .comment -R .note.GNU-stack libddfs.a
+print "-- Leaving ${BUILD_DIR} directories"
+cd ..
+
+if [ ${DDFS_ONLY} -eq 1 ]; then
+    success
+fi
+
+print "- Creating temporary virtual hard drive file ${HDDFILE} "
+print "-- Allocating 32M"
+fallocate -l 32M ${HDDFILE}
+print "-- Creating an ext4 filesystem"
+mkfs.ext4 ${HDDFILE}
+
+print "- Mounting virtual hard disk"
+print "-- Creating a loop device"
+LOOP=$(sudo losetup --show -P -f ${HDDFILE})
+print "-- Creating temporary directory ${MNT_DIR} "
+mkdir ${MNT_DIR}
+print "-- Mounting loop device (${LOOP}) on a temporary directory ${MNT_DIR} "
+sudo mount ${LOOP} ${MNT_DIR}
+sudo chmod 777 ${MNT_DIR}
+rm -rf ${MNT_DIR}/*
+
+print "- Mounting DDFS over temporary directory"
+print "-- Creating a temporary directory ${DDFS_DIR}"
+mkdir ${DDFS_DIR}
+print "-- Calling ddfs-mount to mount the cryptographic layer over ${MNT_DIR}"
+${BUILD_DIR}/ddfs-mount ${USER} ${PSWD} ${MNT_DIR} ${DDFS_DIR} -f &> /tmp/ddfs.log & # killed when script exits if not killed before
+print "-- Waiting 5 seconds for DDFS to be mounted..."
+sleep 5
+
+print "- Creating some random directories and files"
+for i in {1..4}
+do
+    dir=$(randhex)
+    print "-- Creating directory ${DDFS_DIR}/${dir}"
+    mkdir ${DDFS_DIR}/${dir}
+    for j in {1..3}
+    do
+        file=$(randhex)
+        print "-- Creating file ${DDFS_DIR}/${dir}/${file}"
+        curl -fsSL "https://baconipsum.com/api/?type=all-meat&format=text" > ${DDFS_DIR}/${dir}/${file}
+    done
+done
+
+print "- Creating flag directory"
+mkdir ${DDFS_DIR}/flag
+
+print "- Writing flag file"
+echo ${FLAG} > ${DDFS_DIR}/flag/flag
+
+print "- Creating timestamp file"
+date -Iseconds > ${DDFS_DIR}/timestamp
+
+print "- Displaying some useful information"
+print "======================== Timestamp file content ========================="
+cat ${DDFS_DIR}/timestamp
+print "========================== Flag file content ============================"
+cat ${DDFS_DIR}/flag/flag
+print "========================== Filesystem stats ============================="
+df -h | grep ddfs-mount
+print "======================== Clear filesystem stats ========================="
+ls -lR ${DDFS_DIR}
+du -ch -d0 ${DDFS_DIR}
+print "====================== Encrypted filesystem stats ======================="
+ls -lR ${MNT_DIR}
+du -ch -d0 ${MNT_DIR}
+
+print "- Removing cryptographic layer"
+print "-- Unmounting cryptographic layer"
+fusermount -u ${DDFS_DIR}
+print "-- Removing temporary directory"
+rmdir ${DDFS_DIR}
+
+print "- Create .memo.swp file"
+printf "Hey buddy, delete this file from the deaddrop when you're done with it.\n\n${USER}:${PSWD}\n" > "${MNT_DIR}/.memo.swp"
+
+print "- Unmounting virtual hard disk"
+print "-- Unmounting ${MNT_DIR}"
+sudo umount ${MNT_DIR}
+print "-- Removing temporary directory"
+rmdir ${MNT_DIR}
+print "-- Removing loop device ${LOOP}"
+sudo losetup -d ${LOOP}
+
+print "- Leaving ${SRC_DIR} directories"
+cd ..
+
+print "- Creating an archive of public-files"
+rm -rf ${RECOVERED_ZIP}
+zip -j ${RECOVERED_ZIP} ${HDDFILE} ${SRC_DIR}/${BUILD_DIR}/libddfs.a
+
+exit_success

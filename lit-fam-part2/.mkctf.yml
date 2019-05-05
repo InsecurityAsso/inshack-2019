@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: easy
+enabled: true
+flag: INSA{iS_in_th3_AiR_4_u_4nd_Me}
+name: Lit [FAM] - Part F
+parameters: {}
+points: -3
+slug: lit-fam-part2
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/c5396da6d69088801a80c603502c3f706c630e80.tar.gz
+tags:
+- net

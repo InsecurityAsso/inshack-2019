@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: trivial
+enabled: true
+flag: INSA{3d_pr1nt3d_fl49}
+name: gflag
+parameters: {}
+points: -3
+slug: gflag
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/a7572eb34ba9700b39f1ba7f5869bf301b67d406.tar.gz
+tags:
+- misc

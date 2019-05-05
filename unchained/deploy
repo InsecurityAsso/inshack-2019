@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# for local testing only
+sudo docker run --rm -p 8000:8000 registry-chal.infra.insecurity-insa.fr/insecurity/unchained
+

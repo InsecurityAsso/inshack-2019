@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: trivial
+enabled: true
+flag: INSA{is_e2e_8annEd_1n_Russi4_too}
+name: Telegram
+parameters: {}
+points: -3
+slug: telegram
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/333b156e30298c71f294777d41a23cdc24d81797.tar.gz
+tags:
+- misc

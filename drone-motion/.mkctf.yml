@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: easy
+enabled: true
+flag: INSA{66333db55e9ca50e9e9c4c94dc45250532832dc4681d531f0fab6d1a255c8578}
+name: Drone Motion
+parameters: {}
+points: -3
+slug: drone-motion
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/5e97cfb3f4c64201c201a1703440c397f91be74b.tar.gz
+tags:
+- for

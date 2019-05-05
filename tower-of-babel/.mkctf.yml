@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: extreme
+enabled: true
+flag: INSA{83a6ab5f84fba8bcceca59b94946d06c1b4057822b7f789cb0ca2ea2e091dcfc}
+name: Tower of Babel
+parameters: {}
+points: -3
+slug: tower-of-babel
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/fc1fb6481ee711d32bcc8b715dc0c7e06b394d50.tar.gz
+tags:
+- for

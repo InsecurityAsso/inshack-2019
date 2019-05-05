@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: trivial
+enabled: true
+flag: INSA{B3_v3rY_c4r3fUL_w1tH_uR_1nt3g3r_bR0}
+name: intergover
+parameters: {}
+points: -3
+slug: intergover
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/b9ae1bb499daefff8aac28c936dc0cef1071d7ed.tar.gz
+tags:
+- pwn

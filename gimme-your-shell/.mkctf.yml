@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: easy
+enabled: true
+flag: INSA{YoU_h4v3_a_b34uT1fUL_Sh33lc0D3}
+name: gimme-your-shell
+parameters: {}
+points: -3
+slug: gimme-your-shell
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/de3560ce34d9bd8e7555cf409bca7ecdd3dbe86b.tar.gz
+tags:
+- pwn

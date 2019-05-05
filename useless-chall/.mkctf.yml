@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: hard
+enabled: true
+flag: INSA{I_kN0w_U_l0v3_Us3l3sS_H4sH_FuNcT10n}
+name: useless-chall
+parameters: {}
+points: -3
+slug: useless-chall
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/eede865dc67d119882467715e3fa7fe352eae921.tar.gz
+tags:
+- re

@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: medium
+enabled: true
+flag: INSA{S0rry_4_Th3_B4d_0cR}
+name: new-authent
+parameters: {}
+points: -3
+slug: new-authent
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/462f6f63b796b10cf4ff613793bb65930b1e4912.tar.gz
+tags:
+- misc

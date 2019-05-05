@@ -1,0 +1,19 @@
+{
+  "door": 20000,
+  "sequence": [
+    {"port": 10010, "proto": "UDP"},
+    {"port": 10090, "proto": "UDP"},
+    {"port": 10020, "proto": "TCP"},
+    {"port": 10010, "proto": "UDP"},
+    {"port": 10060, "proto": "TCP"},
+    {"port": 10080, "proto": "UDP"},
+    {"port": 10010, "proto": "UDP"},
+    {"port": 10000, "proto": "TCP"},
+    {"port": 10000, "proto": "UDP"},
+    {"port": 10040, "proto": "TCP"},
+    {"port": 10020, "proto": "UDP"}
+  ],
+  "open_sesame": "GIMME THE FLAG PLZ...",
+  "seq_interval": 10,
+  "door_interval": 5
+}

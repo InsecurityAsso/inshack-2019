@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: hard
+enabled: true
+flag: INSA{c9bbedbfb61433a546816fac2de81bcb0cee0cc1ca2b07a487872993c5d711ba}
+name: Deaddrop Filesystem
+parameters: {}
+points: -3
+slug: deaddrop-filesystem
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/4f44b0118806de17474dd221243d31cc9fbc9a7c.tar.gz
+tags:
+- re

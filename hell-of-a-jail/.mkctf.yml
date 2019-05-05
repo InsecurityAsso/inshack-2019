@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: hard
+enabled: true
+flag: INSA{688a3188bcd888ad4540da2ac73c94ae9f55ded00ed1742c4388bb7c3285acd2}
+name: hell_of_a_jail
+parameters: {}
+points: -3
+slug: hell-of-a-jail
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/a5a314225ae67f20760cbe59d4c2e8713ff5bd53.tar.gz
+tags:
+- pwn

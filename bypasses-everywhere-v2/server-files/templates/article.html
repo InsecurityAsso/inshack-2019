@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>{{ name }}</h1>
+<img style="max-width:80vh" src="{{ img }}">
+<p>
+	{{ description }}
+	<br>
+	Price:
+	<code style="color: red">
+		{{ price }}€
+	</code>
+	<br>
+	<b>Posted</b> <code>{{ time|safe }}{{ unit|safe }}</code> ago
+</p>
+{% endblock %}

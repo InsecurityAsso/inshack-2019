@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: medium
+enabled: true
+flag: INSA{Why_D0_U_w4nT_T0_ROPE_m3_I_4m_s4D}
+name: ropberry
+parameters: {}
+points: -3
+slug: ropberry
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/e2bc7f2694aa1ab77c64b72184314bd36665ff17.tar.gz
+tags:
+- pwn

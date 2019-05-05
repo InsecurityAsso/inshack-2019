@@ -1,0 +1,1 @@
+The encrypted password archive contains a flag upon creation. Intercept the content of any archive while it's in decrypted state (place a breakpoint, decrypt the archive by hand, or read the default archive data hardcoded in the program).

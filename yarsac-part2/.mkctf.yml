@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: medium
+enabled: true
+flag: INSA{Uh_never_give_4w4y_your_Pr1mes_I_m34n_duhhh}
+name: Yet Another RSA Challenge - Part 2
+parameters: {}
+points: -3
+slug: yarsac-part2
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/80b4175896560b143276d9ca5aa3e39a8ac4f613.tar.gz
+tags:
+- prog

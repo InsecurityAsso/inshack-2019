@@ -1,0 +1,23 @@
+FROM ubuntu:12.04
+
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install libc6-dev-i386 gcc make python gdb -y
+RUN useradd sandbox
+
+RUN mkdir -p /sandbox
+WORKDIR /sandbox
+
+ADD server-files/main.c /sandbox
+ADD server-files/Makefile /sandbox
+ADD server-files/flag.txt /sandbox
+RUN chown root:sandbox /sandbox/flag.txt
+RUN chmod 440 /sandbox/flag.txt
+
+
+RUN make weak && rm Makefile main.c
+RUN chown root:sandbox weak
+
+RUN cat flag.txt
+
+USER sandbox
+CMD ./weak

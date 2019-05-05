@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: extreme
+enabled: true
+flag: INSA{P4p4VM_w4Z_r34llY_4m4z1nG_I_L0v3_1t}
+name: PaPaVM
+parameters: {}
+points: -3
+slug: papavm
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/a38f37cb17a0699c30cb02f6b871fbd6a723a884.tar.gz
+tags:
+- re

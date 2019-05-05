@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: medium
+enabled: true
+flag: INSA{or4cle_P4dd1ng}
+name: Jean-Sébastien Bash
+parameters: {}
+points: -3
+slug: jean-sebastien-bash
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/d59577aab0cb2fa797a48475066c9fbc81a98a27.tar.gz
+tags:
+- crypto

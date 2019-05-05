@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+# exit on error
+set -e
+# ------------------------------------------------------------------------------
+# FUNCTIONS
+# ------------------------------------------------------------------------------
+function print {
+    (>&2 printf "\x1b[34m${1}\x1b[0m\n")
+}
+function exit_success {
+    (>&2 printf "\x1b[32m- Script succeeded.\x1b[0m\n")
+    exit 0
+}
+function exit_failure {
+    (>&2 printf "\x1b[31m- Script failed.\x1b[0m\n")
+    exit 1
+}
+function exit_non_applicable {
+    (>&2 printf "\x1b[36m- Script non applicable.\x1b[0m\n")
+    exit 2
+}
+function exit_manual {
+    (>&2 printf "\x1b[33m- Script requires a manual operation.\x1b[0m\n")
+    exit 3
+}
+function exit_not_implemented {
+    (>&2 printf "\x1b[35m- Script not implemented.\x1b[0m\n")
+    exit 4
+}
+function randhex {
+    echo "$(head -c 8 /dev/urandom | xxd -ps)"
+}
+function usage {
+    print "usage: build [-h|--help]"
+    print "OPTIONS:"
+    print "    --help,-h: display usage message"
+    exit_failure
+}
+# ------------------------------------------------------------------------------
+# MAIN SCRIPT
+# ------------------------------------------------------------------------------
+print "========================================================================="
+print "build"
+print "========================================================================="
+
+while test $# -gt 0
+do
+    case "$1" in
+        --help|-h) usage
+            ;;
+        -*) print "- Unknown short option $1"
+            ;;
+        --*) print "- Unknown long option $1"
+            ;;
+        *) print "- Unknown argument $1"
+            ;;
+    esac
+    shift
+done
+
+ARCH=public-files/you-shall-not-pass.zip
+SESAME="-BGZ-$(cat server-files/sesame.json | sed -z 's/\n//g' | gzip -f - | base64)-EGZ-"
+HDDFILE=/tmp/dd.img
+MNTPOINT=/tmp/$(randhex)
+MP4_FILE=src/YOU-SHALL-NOT-PASS.mp4
+
+print "- Creating file-based disk ${HDDFILE}..."
+touch ${HDDFILE}
+print "- Resizing file-based disk ${HDDFILE} to 64MB..."
+fallocate -x -l 64M ${HDDFILE}
+print "- Creating a loop device for file-based disk ${HDDFILE}..."
+LOOP=$(sudo losetup --show -f ${HDDFILE})
+print "- Creating a NTFS on loop device ${LOOP}..."
+sudo mkfs.ntfs ${LOOP}
+print "- Deleting loop device ${LOOP}..."
+sudo losetup -d ${LOOP}
+print "- Mounting ${HDDFILE} on ${MNTPOINT}..."
+mkdir -p ${MNTPOINT}
+sudo mount ${HDDFILE} ${MNTPOINT}
+print "- Creating some random directories and files"
+for i in {1..4}
+do
+    dir=$(randhex)
+    print "-- Creating directory ${MNTPOINT}/${dir}"
+    mkdir ${MNTPOINT}/${dir}
+    for j in {1..3}
+    do
+        file=$(randhex)
+        print "-- Creating file ${MNTPOINT}/${dir}/${file}"
+        if [ ${i} -eq 2 ] && [ ${j} -eq 3 ]; then
+            print "--- Copying movie as ${MNTPOINT}/${dir}/${file}"
+            cp ${MP4_FILE} ${MNTPOINT}/${dir}/${file}
+            print "--- Injecting payload in ${MNTPOINT}/${dir}/${file}"
+            size=$(cat ${MNTPOINT}/${dir}/${file} | wc -c)
+            echo "${SESAME}" | iconv -f UTF-8 -t UTF-16LE >> ${MNTPOINT}/${dir}/${file}
+            truncate --size=${size} ${MNTPOINT}/${dir}/${file}
+        else
+            curl -fsSL "https://baconipsum.com/api/?paras=3&type=all-meat&make-it-spicy=1" > ${MNTPOINT}/${dir}/${file}
+        fi
+    done
+done
+print "- Unmounting ${HDDFILE} on ${MNTPOINT}..."
+sudo umount ${MNTPOINT}
+rmdir ${MNTPOINT}
+print "- Adding disk to ${ARCH}..."
+zip -j ${ARCH} ${HDDFILE}
+print "- Creating server env file..."
+echo "SESAME_FLAG=$(grep -E 'flag:' .mkctf.yml | cut -d' ' -f2)" > server-files/sesame.env
+
+exit_success

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+FLAG=$(grep -oP 'INSA{.*}' .mkctf.yml)
+cd server-files/
+sudo docker build --build-arg FLAG=$FLAG -t registry-chal.infra.insecurity-insa.fr/insecurity/unchained .
+sudo docker login registry-chal.infra.insecurity-insa.fr
+sudo docker push registry-chal.infra.insecurity-insa.fr/insecurity/unchained
+mkdir -p ../public-files/src
+cp Dockerfile ../public-files/src
+cp nginx.conf ../public-files/src
+cp requirements.txt ../public-files/src
+cp uwsgi.ini ../public-files/src
+

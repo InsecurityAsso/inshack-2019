@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: medium
+enabled: true
+flag: INSA{9c431db9206d2c13bd730a331f07561e49fdebb13ef13057bbeee655a6808fa5}
+name: Obscure File Format
+parameters: {}
+points: -3
+slug: obscure-file-format
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/a893dacde4b3fd97d924430b583bc7b3968b1ce4.tar.gz
+tags:
+- re

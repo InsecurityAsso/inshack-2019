@@ -1,0 +1,11 @@
+*.tmp_versions
+*.order
+*.symvers
+*.out
+*.ko
+*.cmd
+*.mod.c
+*.o
+*.bin
+src/build
+*.dmp

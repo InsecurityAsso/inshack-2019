@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: extreme
+enabled: true
+flag: INSA{41322239}
+name: Crunchy
+parameters: {}
+points: -3
+slug: crunchy
+standalone: true
+static_url: https://static.ctf.insecurity-insa.fr/d099bd3ce0d20ce8aaff41451a6adcda4184fc4f.tar.gz
+tags:
+- prog

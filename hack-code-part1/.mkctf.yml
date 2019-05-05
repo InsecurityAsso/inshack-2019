@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: easy
+enabled: true
+flag: INSA{N0t_bad_f0r_a_start}
+name: Hack Code - Flag 1
+parameters: {}
+points: 25
+slug: hack-code-part1
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/e119487fb99772e2c52e8900324a83181cdb34b2.tar.gz
+tags:
+- prog

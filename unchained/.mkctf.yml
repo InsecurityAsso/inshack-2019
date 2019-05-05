@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: medium
+enabled: true
+flag: INSA{5c4de5ae72c41ea201e41a019dcf4393f1f8793395e941540dd47a430c5446d7}
+name: unchained
+parameters: {}
+points: -3
+slug: unchained
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/8bd73e93536e8379a9a3b430a9126cf77140e9ea.tar.gz
+tags:
+- web

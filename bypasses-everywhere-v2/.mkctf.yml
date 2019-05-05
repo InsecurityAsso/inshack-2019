@@ -1,0 +1,17 @@
+#
+# This file was generated using mkCTF utility.
+# Do not edit it manually unless you know exactly what you're doing.
+# Keep #PEBCAK in mind.
+#
+company_logo_url: ''
+difficulty: extreme
+enabled: true
+flag: INSA{Finally_needed_full_XSS_this_time?}
+name: bypasses everywhere v2
+parameters: {}
+points: 100
+slug: bypasses-everywhere-v2
+standalone: false
+static_url: https://static.ctf.insecurity-insa.fr/51ac8f7c81fd280dc0303abc6bb79ea3fb46c797.tar.gz
+tags:
+- web
